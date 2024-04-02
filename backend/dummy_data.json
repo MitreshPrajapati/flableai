@@ -1,0 +1,36 @@
+{
+  "questions": [
+    {
+      "question": "What is the capital of France?",
+      "answer": "The capital of France is Paris."
+    },
+    {
+      "question": "How many continents are there in the world?",
+      "answer": "There are seven continents in the world: Asia, Africa, North America, South America, Antarctica, Europe, and Australia."
+    },
+    {
+      "question": "Who is the president of the United States?",
+      "answer": "As of January 2022, the president of the United States is Joe Biden."
+    },
+    {
+      "question": "What is the boiling point of water?",
+      "answer": "The boiling point of water is 100 degrees Celsius or 212 degrees Fahrenheit at standard atmospheric pressure."
+    },
+    {
+      "question": "Who wrote the famous novel 'To Kill a Mockingbird'?",
+      "answer": "'To Kill a Mockingbird' was written by Harper Lee."
+    },
+    {
+      "question": "What is the tallest mountain in the world?",
+      "answer": "The tallest mountain in the world is Mount Everest, located in the Himalayas on the border between Nepal and China."
+    },
+    {
+      "question": "What is the chemical symbol for gold?",
+      "answer": "The chemical symbol for gold is Au."
+    },
+    {
+      "question": "Who painted the Mona Lisa?",
+      "answer": "The Mona Lisa was painted by Leonardo da Vinci."
+    }
+  ]
+}
