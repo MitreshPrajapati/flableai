@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 // import { sendMsgToOpenAI } from "./openai";
 import { MdContentCopy } from "react-icons/md";
+import jsPDF from "jspdf";
 import axios from "axios";
 import { URL } from "../api";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,7 +26,22 @@ const MainDisplay = () => {
     });
   };
   // console.log(currChat, "from generateChat");
-
+  const handleExportData = (data) => {
+    const doc = new jsPDF();
+    console.log(data.chat);
+    const arr = data.chat;
+    let text = "";
+    for (let i = 0; i < arr.length; i++) {
+      text += arr[i].prompt;
+      text += arr[i].question;
+      text += arr[i].answer;
+    }
+    doc.setFontSize(12);
+    const textWidth = 180; 
+    const textLines = doc.splitTextToSize(text, textWidth);
+    doc.text(textLines, 10, 10);
+    doc.save("generated.pdf");
+  };
   const generateAnswer = async () => {
     if (prompt && accordingTo) {
       const payload = {
@@ -43,7 +59,12 @@ const MainDisplay = () => {
   return (
     <div className="w-full min-h-full flex flex-col justify-between">
       <div className="relative">
-        <button className="absolute right-0 mr-2 p-2 bg-orange-300 rounded-md ">
+        <button
+          className="absolute right-0 mr-2 p-2 bg-orange-300 rounded-md "
+          onClick={() => {
+            handleExportData(currChat);
+          }}
+        >
           {" "}
           Export
         </button>

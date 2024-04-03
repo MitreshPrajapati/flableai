@@ -18,7 +18,7 @@ const RegistrationForm = () => {
         avatar,
       };
       console.log(payload);
-      axios.post(`${URL}auth/register`, payload).then((response) => {
+      axios.post(`${URL}/auth/register`, payload).then((response) => {
         console.log(response);
         setEmail("");
         setName("");
