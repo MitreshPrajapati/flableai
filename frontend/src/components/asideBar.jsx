@@ -16,14 +16,12 @@ const SideBar = ({ hamState }) => {
   const retriveChatList = async () => {
     const payload = { token: token };
     dispatch(getAllChats(payload));
-
   };
 
   const handleCurrChat = (id) => {
     const payload = { id: id, token: token };
     dispatch(swithChat(payload)).then((r) => {
       console.log(r, "sucess switch chat");
-      
     });
   };
 
@@ -73,7 +71,12 @@ const SideBar = ({ hamState }) => {
                 onClick={() => {
                   handleCurrChat(chat._id);
                 }}
-                className="list-none mt-2 p-2 bg-blue-200 rounded-md w-[90%] m-auto"
+                className={`${
+                  currChat._id === chat._id
+                    ? "list-none mt-2 p-2 bg-blue-400 rounded-md w-[90%] m-auto"
+                    : "list-none mt-2 p-2 bg-blue-200 rounded-md w-[90%] m-auto"
+                }`}
+                // className="list-none mt-2 p-2 bg-blue-200 rounded-md w-[90%] m-auto"
               >
                 {chat?.chatName}
               </li>
@@ -84,7 +87,7 @@ const SideBar = ({ hamState }) => {
         <div className="flex items-center justify-between m-2">
           <h2>History</h2>
           <button
-            className="bg-slate-50 rounded-md p-2 text-sm font-bold text-slate-400  "
+            className="bg-orange-300 rounded-md p-2 text-sm font-bold text-slate-800  "
             onClick={() => setModalState(true)}
           >
             New Chat
@@ -110,15 +113,10 @@ const SideBar = ({ hamState }) => {
         <div>
           <hr className="w-full h-[1px] " />
           <ul className="flex flex-col gap-2 ml-2">
-            {
-              currChat && currChat?.chat?.map((chat)=>{
-                return(
-                  <li key={Date.now+chat.question} >
-                    {chat?.question}
-                  </li>
-                )
-              })
-            }
+            {currChat &&
+              currChat?.chat?.map((chat) => {
+                return <li key={Date.now + chat.question}>{chat?.question}</li>;
+              })}
           </ul>
         </div>
       </div>

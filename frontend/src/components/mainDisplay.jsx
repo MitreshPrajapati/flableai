@@ -30,15 +30,17 @@ const MainDisplay = () => {
     const doc = new jsPDF();
     console.log(data.chat);
     const arr = data.chat;
-    let text = "";
+    let textArray = [];
     for (let i = 0; i < arr.length; i++) {
-      text += arr[i].prompt;
-      text += arr[i].question;
-      text += arr[i].answer;
+      textArray.push(arr[i].prompt + "\n");
+      textArray.push(arr[i].question + "\n");
+      textArray.push(arr[i].answer + "\n");
     }
+
+    const formattedText = textArray.join("\n");
     doc.setFontSize(12);
-    const textWidth = 180; 
-    const textLines = doc.splitTextToSize(text, textWidth);
+    const textWidth = 180;
+    const textLines = doc.splitTextToSize(formattedText, textWidth);
     doc.text(textLines, 10, 10);
     doc.save("generated.pdf");
   };
