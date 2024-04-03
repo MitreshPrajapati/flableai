@@ -60,7 +60,7 @@ const MainDisplay = () => {
   };
   return (
     <div className="w-full min-h-full flex flex-col justify-between">
-      <div className="relative">
+      <div className="relative ">
         <button
           className="absolute right-0 mr-2 p-2 bg-orange-300 rounded-md "
           onClick={() => {
@@ -71,7 +71,7 @@ const MainDisplay = () => {
           Export
         </button>
       </div>
-      <div className="mt-[60px] min-h-[78vh] scroll-smooth px-2">
+      <div className="mt-[60px] min-h-[78vh]  px-2 overflow-y-scroll scroll-smooth">
         <ul className="flex flex-col gap-2 ">
           {currChat?.chat?.map((item, idx) => {
             return (
